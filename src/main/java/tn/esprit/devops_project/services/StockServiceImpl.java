@@ -2,6 +2,7 @@ package tn.esprit.devops_project.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.devops_project.repositories.ProductRepository;
 import tn.esprit.devops_project.services.Iservices.IStockService;
 import tn.esprit.devops_project.entities.Stock;
 import tn.esprit.devops_project.repositories.StockRepository;
@@ -13,6 +14,7 @@ import java.util.List;
 public class StockServiceImpl implements IStockService {
 
    private final StockRepository stockRepository;
+   private final ProductRepository productRepository;
 
     @Override
     public Stock addStock(Stock stock) {
@@ -29,6 +31,12 @@ public class StockServiceImpl implements IStockService {
         return stockRepository.findAll();
     }
 
+    @Override
+    public void deleteStock(Long id) {
+        if(productRepository.findByStockIdStock(id)==null)
+         stockRepository.deleteById(id);
+        else System.out.println("ce stock contient des produit ");
+    }
 
 
 }
