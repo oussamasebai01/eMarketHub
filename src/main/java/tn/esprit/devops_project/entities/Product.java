@@ -23,6 +23,7 @@ public class Product implements Serializable {
     @Enumerated(EnumType.STRING)
     ProductCategory category;
     @ManyToOne
+    @JoinColumn(name = "stock_id")
     @JsonIgnore
     Stock stock;
 }
