@@ -2,7 +2,7 @@
 FROM openjdk:11-jdk
 
 # Informations sur l'auteur
-LABEL maintainer="your-email@example.com"
+LABEL maintainer="sebaiOussama@outlook.com"
 
 # Spécifier le répertoire de travail dans le conteneur
 WORKDIR /app
