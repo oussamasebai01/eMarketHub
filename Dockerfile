@@ -8,10 +8,10 @@ LABEL maintainer="sebaiOussama@outlook.com"
 WORKDIR /app
 
 # Copier le fichier jar dans le conteneur
-COPY target/my-spring-app.jar /app/my-spring-app.jar
+COPY target/my-spring-app.jar /app/DevOps.jar
 
 # Exposer le port sur lequel l'application s'exécute
 EXPOSE 8082
 
 # Commande pour exécuter l'application
-ENTRYPOINT ["java", "-jar", "/app/my-spring-app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/DevOps.jar"]
