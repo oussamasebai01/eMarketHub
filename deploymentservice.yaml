@@ -1,12 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # Kubernetes resource kind we are creating
 metadata:
   name: emarkethub
 spec:
   selector:
     matchLabels:
       app: spring-boot-k8s
-  replicas: 2
+  replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
@@ -14,74 +14,23 @@ spec:
     spec:
       containers:
         - name: spring-boot-k8s
-          image: oussamasebai/emarkethub
+          image: oussamasebai/emarkethub # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8082
-          env:
-            - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://mysql:3306/devops-client?createDatabaseIfNotExist=true
-            - name: SPRING_DATASOURCE_USERNAME
-              value: root
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: 21824847Sebai
+            - containerPort: 8082 # The port that the container is running on in the cluster
+
+
 ---
-apiVersion: v1
-kind: Service
-metadata:
+
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
   name: springboot-k8ssvc
 spec:
   selector:
     app: spring-boot-k8s
   ports:
     - protocol: "TCP"
-      port: 8082
-      targetPort: 8082
-  type: NodePort
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: mysql
-spec:
-  serviceName: "mysql"
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mysql
-  template:
-    metadata:
-      labels:
-        app: mysql
-    spec:
-      containers:
-        - name: mysql
-          image: mysql:5.7
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: 21824847Sebai
-          ports:
-            - containerPort: 3306
-              name: mysql
-          volumeMounts:
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
-  volumeClaimTemplates:
-    - metadata:
-        name: mysql-persistent-storage
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        resources:
-          requests:
-            storage: 1Gi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: mysql
-spec:
-  ports:
-    - port: 3306
-      name: mysql
-  selector:
-    app: mysql
+      port: 8082 # The port that the service is running on in the cluster
+      targetPort: 8082 # The port exposed by the service
+  type: NodePort # type of the service.
