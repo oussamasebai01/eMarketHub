@@ -17,7 +17,7 @@ spec:
       - name: backend-app
         image: oussamasebai/emarkethub:latest 
         ports:
-        - containerPort: 80
+        - containerPort: 8002
 ---
 apiVersion: v1
 kind: Service
@@ -29,5 +29,5 @@ spec:
   ports:
   - protocol: TCP
     port: 8002
-    targetPort: 80
+    targetPort: 8002
   type: LoadBalancer
