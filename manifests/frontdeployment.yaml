@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend-app
-        image: oussamasebai/e-markethubfrant:1.1.1
+        image: oussamasebai/e-markethubfrant:35
         ports:
         - containerPort: 80
 ---
