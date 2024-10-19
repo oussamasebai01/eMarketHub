@@ -15,9 +15,12 @@
     <description>DevOps_Project</description>
     <properties>
         <java.version>11</java.version>
-        <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+        <hibernate.dialect>DevOps_Project</hibernate.dialect>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <sonar.projectKey>tn.esprit:DevOps_Project</sonar.projectKey>
+		<sonar.host.url>http://192.168.100.199:9000/</sonar.host.url>
+		<sonar.login>squ_1e821f67b158f541d9f05a5343dbacf3c1dc1cc1</sonar.login>
     </properties>
     <dependencies>
         <dependency>
