@@ -18,9 +18,9 @@
         <hibernate.dialect>DevOps_Project</hibernate.dialect>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <sonar.projectKey>tn.esprit.rh:achat</sonar.projectKey>
+        <sonar.projectKey></sonar.projectKey>
 		<sonar.host.url>http://192.168.100.199:9000/</sonar.host.url>
-		<sonar.login>squ_963f9668224bdd431758d174123f64c4b78d91ac</sonar.login>
+		<sonar.login>squ_1e821f67b158f541d9f05a5343dbacf3c1dc1cc1</sonar.login>
     </properties>
     <dependencies>
         <dependency>
